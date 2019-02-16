@@ -37,6 +37,22 @@ minetest.register_node("luciferine:luciferine", {
 	light_source = default.LIGHT_MAX,
 })
 
+
+-- Cobble avec luciferine:
+minetest.register_node("luciferine:cobble_with_luciferine", {
+	description = "Cobble with luciferine",
+	tiles = {"cobble_with_luciferine.png"},
+	drop = "luciferine:cobble_with_luciferine",	
+	groups = {stone = 1, cracky = 3},
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = false,
+	legacy_mineral = true,
+	sounds = default.node_sound_stone_defaults(),
+	light_source = default.LIGHT_MAX,
+})
+
+
 -- Craft du seau de luciole écrasé:
 minetest.register_craft({
 	output = "luciferine:bucket_crushed_firefly",
@@ -52,4 +68,13 @@ minetest.register_craft({
 	output = "luciferine:luciferine 4",
 	recipe = "luciferine:bucket_crushed_firefly",
 	replacements = {{"luciferine:bucket_crushed_firefly", "bucket:bucket_empty"}},
+})
+
+-- craft de la cobble with luciferine
+minetest.register_craft({
+	output = "luciferine:cobble_with_luciferine",
+	recipe = {
+		{"luciferine:luciferine"},
+		{"default:cobble"},
+		}
 })
